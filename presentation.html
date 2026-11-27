@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oral presentation — IERO NAVIS</title>
+<meta name="description" content="Oral presentation of IERO NAVIS: brand, target audience, strengths, strategy and social media results.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --ink:#111214; --ink-soft:#4a4d52; --line:#d9dbde; --paper:#ffffff; --mist:#f4f5f6; --sea:#2b3f4d;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1120px,100% - 48px);margin-inline:auto}
+
+  /* Navigation */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,56px);transition:background .4s,box-shadow .4s,padding .4s}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-block:8px}
+  .nav .brand img{height:44px;width:auto;opacity:0;transition:opacity .4s}
+  .nav.scrolled .brand img{opacity:1}
+  .nav ul{display:flex;gap:clamp(12px,2vw,30px);list-style:none}
+  .nav ul a{text-decoration:none;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;position:relative;padding-block:6px;white-space:nowrap}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .nav ul a:hover::after,.nav ul a[aria-current="page"]::after{transform:scaleX(1)}
+  .lang{display:flex;border:1px solid var(--line);background:rgba(255,255,255,.75)}
+  .lang button{background:none;border:0;padding:6px 11px;font:inherit;font-size:.72rem;letter-spacing:.14em;cursor:pointer;color:var(--ink)}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+  /* Génériques */
+  section{position:relative}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.15}
+  h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px}
+  .lead{max-width:640px;margin-top:22px;color:var(--ink-soft);font-size:1.06rem}
+  .pad{padding-block:clamp(72px,11vw,140px)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .btn{display:inline-block;margin-top:30px;padding:15px 34px;border:1px solid var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:background .35s,color .35s}
+  .btn:hover{background:var(--ink);color:#fff}
+  footer{padding:36px 0 44px;text-align:center;font-size:.76rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+  footer img{height:48px;width:auto;margin:0 auto 14px;opacity:.85}
+  footer .links{margin-bottom:14px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+  footer .links a{text-decoration:none;border-bottom:1px solid transparent}
+  footer .links a:hover{border-color:currentColor}
+
+  /* Pages secondaires */
+  .page-head{padding:clamp(130px,16vw,190px) 0 clamp(40px,6vw,70px);text-align:center;background:linear-gradient(var(--mist),var(--paper))}
+  .page-head h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:14px}
+  .page-head .lead{margin-inline:auto}
+
+  .slide-sec{padding-block:clamp(48px,7vw,90px);border-top:1px solid var(--line)}
+  .slide-sec:first-of-type{border-top:0}
+  .slide-no{font-family:Georgia,serif;font-size:clamp(2.6rem,6vw,4.4rem);color:var(--line);line-height:1}
+  .slide-sec h2{margin-top:6px}
+  .pblocks{display:grid;gap:clamp(28px,4vw,52px);margin-top:clamp(32px,4vw,52px)}
+  .pb{display:grid;grid-template-columns:clamp(150px,22vw,230px) 1fr;gap:clamp(18px,3vw,40px);align-items:start;border-top:1px solid var(--ink);padding-top:22px}
+  .pb.noimg{grid-template-columns:1fr}
+  .pb a.thumb{display:block;box-shadow:0 2px 16px rgba(0,0,0,.12);background:var(--mist)}
+  .pb a.thumb img{width:100%;height:auto;display:block}
+  .pb h3{font-family:Georgia,serif;font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem)}
+  .pb p,.pb .pt{margin-top:10px;color:var(--ink-soft)}
+  .pb .pt{font-size:1.02rem}
+  .pb .pt b{color:var(--ink);font-weight:600}
+  .pb p.why{color:var(--ink)}
+  .pb p.why b{font-weight:600;letter-spacing:.04em}
+  .pb ul{margin:0 0 0 1.1em}
+  .pb li{margin-top:6px}
+  .retro{margin-top:clamp(28px,4vw,48px)}
+  .retro-t{font-family:Georgia,serif;font-weight:400;font-size:clamp(1.6rem,3.2vw,2.3rem)}
+  .proj{margin-top:clamp(30px,4.4vw,52px)}
+  .proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3.4vw,44px);margin-top:18px}
+  .proj-col{border-top:1px solid var(--ink);padding-top:18px}
+  .proj-col h4{font-family:Georgia,serif;font-size:clamp(1.25rem,2.4vw,1.6rem);font-weight:400;color:var(--ink)}
+  .proj-col .pt{margin-top:12px;color:var(--ink-soft)}
+  .proj-col ul{margin:0 0 0 1.1em}
+  .proj-col li{margin-top:6px}
+  .proj-col b{color:var(--ink);font-weight:600}
+  @media (max-width:760px){.proj-grid{grid-template-columns:1fr}}
+  .retro-sub{margin-top:clamp(26px,4vw,44px);border-top:1px solid var(--ink);padding-top:20px}
+  .retro-sub h4{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
+  .fin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);margin-top:20px;align-items:start}
+  .chart{margin:0}
+  .chart figcaption{font-size:.84rem;color:var(--ink-soft)}
+  .bars{display:flex;align-items:flex-end;justify-content:center;gap:clamp(24px,6vw,64px);height:260px;margin-top:34px;border-bottom:1px solid var(--ink)}
+  .bars .col{position:relative;width:clamp(70px,14vw,120px);height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch}
+  .bars .bar{background:var(--line);width:100%;min-height:4px}
+  .bars .bar.hi{background:var(--ink)}
+  .bars .val{text-align:center;font-family:Georgia,serif;font-size:1.25rem;padding-bottom:6px}
+  .bars b{position:absolute;left:0;right:0;top:calc(100% + 8px);text-align:center;font-weight:400;letter-spacing:.16em}
+  .bars small{position:absolute;left:-20%;right:-20%;top:calc(100% + 32px);text-align:center;color:var(--ink-soft);font-size:.82rem}
+  .chart .mult{margin-top:74px;text-align:center;font-size:.9rem;color:var(--ink-soft)}
+  .cards{display:grid;gap:clamp(14px,2.4vw,26px)}
+  .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards .stat strong{font-size:clamp(1.9rem,4vw,2.9rem)}
+  .hr{display:grid;grid-template-columns:clamp(150px,24vw,260px) minmax(0,1fr);gap:clamp(18px,3.4vw,44px);margin-top:20px;align-items:start}
+  .hrfig{margin:0}
+  .hrfig figcaption{margin-top:10px;font-style:italic;font-size:.88rem;color:var(--ink-soft)}
+  .hr a.thumb{display:block;box-shadow:0 2px 16px rgba(0,0,0,.12);background:var(--mist)}
+  .hr a.thumb img{width:100%;height:auto;display:block}
+  @media (max-width:760px){.fin{grid-template-columns:1fr}.hr{grid-template-columns:1fr}.hr a.thumb{max-width:260px}}
+  @media (max-width:420px){.cards.two{grid-template-columns:1fr}}
+  .chip{display:inline-block;margin-top:10px;border:1px solid var(--line);padding:5px 12px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(16px,3vw,36px);margin-top:clamp(32px,4vw,52px)}
+  .stat{border-top:1px solid var(--ink);padding-top:20px}
+  .stat strong{display:block;font-family:Georgia,serif;font-weight:400;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05}
+  .stat span{display:block;margin-top:8px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+  .stat small{display:block;margin-top:6px;color:var(--ink-soft);font-size:.88rem}
+  .pnote{margin-top:26px;color:var(--ink-soft);font-size:.92rem}
+  @media (max-width:560px){.pb{grid-template-columns:1fr}.pb a.thumb{max-width:260px}}
+
+  @media (max-width:980px){
+    .nav{flex-wrap:wrap;justify-content:center;row-gap:6px}
+    .nav .brand{display:none}
+    .nav ul{flex-wrap:wrap;justify-content:center;gap:4px 14px}
+    .nav ul a{font-size:.68rem;letter-spacing:.1em}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <a class="brand" data-link="index.html#accueil" href="index.html#accueil" aria-label="IERO NAVIS"><img src="logo-iero-navis.png" alt="IERO NAVIS"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a data-link="index.html#entreprise" href="index.html#entreprise" data-i18n="nav.company"></a></li>
+      <li><a data-link="index.html#gamme" href="index.html#gamme" data-i18n="nav.range"></a></li>
+      <li><a data-link="events.html" href="events.html" data-i18n="nav.events"></a></li>
+      <li><a data-link="press.html" href="press.html" data-i18n="nav.press"></a></li>
+      <li><a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a></li>
+      <li><a data-link="video.html" href="video.html" data-i18n="nav.film"></a></li>
+      <li><a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a></li>
+      <li><a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres" aria-current="page"></a></li>
+      <li><a data-link="sav.html" href="sav.html" data-i18n="nav.sav"></a></li>
+      <li><a data-link="index.html#contact" href="index.html#contact" data-i18n="nav.contact"></a></li>
+    </ul>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i18n="p.eyebrow"></span>
+      <h1 data-i18n="p.h1"></h1>
+      <p class="lead" data-i18n="p.lead"></p>
+    </div>
+  </section>
+
+  <section class="slide-sec">
+    <div class="wrap reveal">
+      <div class="slide-no">1</div>
+      <h2 data-i18n="p1.h"></h2>
+      <p class="lead" data-i18n="p1.lead"></p>
+      <div class="pblocks">
+        <div class="pb">
+          <a class="thumb" href="fiche-03.webp" target="_blank" rel="noopener"><img src="fiche-03.webp" alt="Page 3" loading="lazy"></a>
+          <div><h3 data-i18n="p.name.t"></h3>
+          <div class="pt" data-i18n="p.name.p"></div>
+          <p class="why"><b data-i18n="p.why"></b> <span data-i18n="p.name.w"></span></p></div>
+        </div>
+        <div class="pb">
+          <a class="thumb" href="fiche-04.webp" target="_blank" rel="noopener"><img src="fiche-04.webp" alt="Page 4" loading="lazy"></a>
+          <div><h3 data-i18n="p.logo.t"></h3>
+          <div class="pt" data-i18n="p.logo.p"></div>
+          <p class="why"><b data-i18n="p.why"></b> <span data-i18n="p.logo.w"></span></p></div>
+        </div>
+        <div class="pb">
+          <a class="thumb" href="fiche-05.webp" target="_blank" rel="noopener"><img src="fiche-05.webp" alt="Page 5" loading="lazy"></a>
+          <div><h3 data-i18n="p.slogan.t"></h3>
+          <div class="pt" data-i18n="p.slogan.p"></div>
+          <p class="why"><b data-i18n="p.why"></b> <span data-i18n="p.slogan.w"></span></p></div>
+        </div>
+        <div class="pb">
+          <a class="thumb" href="fiche-09.webp" target="_blank" rel="noopener"><img src="fiche-09.webp" alt="Page 9" loading="lazy"></a>
+          <div><h3 data-i18n="p.target.t"></h3>
+          <div class="pt" data-i18n="p.target.p"></div></div>
+        </div>
+        <div class="pb">
+          <a class="thumb" href="fiche-07.webp" target="_blank" rel="noopener"><img src="fiche-07.webp" alt="Page 7" loading="lazy"></a>
+          <div><h3 data-i18n="p.assets.t"></h3>
+          <div class="pt" data-i18n="p.assets.p"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide-sec">
+    <div class="wrap reveal">
+      <div class="slide-no">2</div>
+      <h2 data-i18n="p2.h"></h2>
+      <p class="lead" data-i18n="p2.lead"></p>
+      <div class="retro">
+        <h3 class="retro-t" data-i18n="rt.h"></h3>
+
+        <div class="retro-sub">
+          <h4 data-i18n="rt.fin.h"></h4>
+          <div class="fin">
+            <figure class="chart" role="img" aria-label="Chart" data-i18n-attr="aria-label:rt.chart.alt">
+              <figcaption data-i18n="rt.chart.t"></figcaption>
+              <div class="bars">
+                <div class="col"><span class="val" data-i18n="rt.ca1"></span><div class="bar" style="height:21.8%"></div><b>T1</b><small data-i18n="rt.b1"></small></div>
+                <div class="col"><span class="val" data-i18n="rt.ca2"></span><div class="bar" style="height:100%"></div><b>T2</b><small data-i18n="rt.b2"></small></div>
+                <div class="col"><span class="val" data-i18n="rt.ca3"></span><div class="bar" style="height:78.3%"></div><b>T3</b><small data-i18n="rt.b3"></small></div>
+                <div class="col"><span class="val" data-i18n="rt.ca4"></span><div class="bar hi" style="height:71.3%"></div><b>T4</b><small data-i18n="rt.b4"></small></div>
+              </div>
+              <div class="mult" data-i18n="rt.mult"></div>
+            </figure>
+            <div class="cards">
+              <div class="stat"><strong data-i18n="rt.ca.v"></strong><span data-i18n="rt.ca.l"></span><small data-i18n="rt.ca.s"></small></div>
+              <div class="stat"><strong data-i18n="rt.res.v"></strong><span data-i18n="rt.res.l"></span></div>
+              <div class="stat"><strong data-i18n="rt.tre.v"></strong><span data-i18n="rt.tre.l"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="retro-sub">
+          <h4 data-i18n="rt.hr.h"></h4>
+          <div class="hr">
+            <figure class="hrfig">
+              <a class="thumb" href="indicateur-rh.webp" target="_blank" rel="noopener"><img src="indicateur-rh.webp" alt="IERO NAVIS team" data-i18n-attr="alt:rt.hr.alt" loading="lazy"></a>
+              <figcaption data-i18n="rt.hr.cap"></figcaption>
+            </figure>
+            <div class="cards two">
+              <div class="stat"><strong data-i18n="rt.h1.v"></strong><span data-i18n="rt.h1.l"></span><small data-i18n="rt.h1.s"></small></div>
+              <div class="stat"><strong data-i18n="rt.h2.v"></strong><span data-i18n="rt.h2.l"></span><small data-i18n="rt.h2.s"></small></div>
+              <div class="stat"><strong data-i18n="rt.h3.v"></strong><span data-i18n="rt.h3.l"></span><small data-i18n="rt.h3.s"></small></div>
+              <div class="stat"><strong data-i18n="rt.h4.v"></strong><span data-i18n="rt.h4.l"></span><small data-i18n="rt.h4.s"></small></div>
+            </div>
+          </div>
+        </div>
+        <p class="pnote" data-i18n="rt.note"></p>
+      </div>
+
+      <div class="proj">
+        <h3 class="retro-t" data-i18n="pj.h"></h3>
+        <div class="proj-grid">
+          <div class="proj-col"><h4 data-i18n="pj.prod.h"></h4></div>
+          <div class="proj-col"><h4 data-i18n="pj.fin.h"></h4></div>
+        </div>
+      </div>
+      <div class="pblocks">
+        <div class="pb noimg">
+          <div><h3 data-i18n="p.event.t"></h3>
+          <span class="chip" data-i18n="p.event.chip"></span>
+          <div class="pt" data-i18n="p.event.p"></div>
+          <p class="why"><b data-i18n="p.why"></b> <span data-i18n="p.event.w"></span></p>
+          <p><a class="btn" style="margin-top:6px" data-link="events.html" href="events.html" data-i18n="p.event.btn"></a></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide-sec">
+    <div class="wrap reveal">
+      <div class="slide-no">3</div>
+      <h2 data-i18n="p3.h"></h2>
+      <p class="lead" data-i18n="p3.lead"></p>
+      <div class="stats">
+        <div class="stat"><strong id="n-views">55476</strong><span data-i18n="p3.views"></span></div>
+        <div class="stat"><strong id="n-fol">412</strong><span data-i18n="p3.fol"></span></div>
+        <div class="stat"><strong id="n-int">1590</strong><span data-i18n="p3.int"></span><small data-i18n="p3.int2"></small></div>
+      </div>
+      <p class="pnote" data-i18n="p3.note"></p>
+      <p><a class="btn" href="https://www.instagram.com/ieronavis/" target="_blank" rel="noopener">Instagram</a>
+         <a class="btn" style="margin-left:10px" href="https://www.linkedin.com/in/iero-navis/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="logo-iero-navis.png" alt="IERO NAVIS">
+  <div class="links">
+    <a data-link="index.html" href="index.html" data-i18n="foot.home"></a>
+    <a data-link="philosophy.html" href="philosophy.html" data-i18n="foot.philosophy"></a>
+    <a data-link="events.html" href="events.html" data-i18n="nav.events"></a>
+    <a data-link="press.html" href="press.html" data-i18n="nav.press"></a>
+    <a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a>
+    <a data-link="video.html" href="video.html" data-i18n="nav.film"></a>
+    <a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a>
+    <a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres"></a>
+    <a data-link="sav.html" href="sav.html" data-i18n="nav.sav"></a>
+    <a href="https://www.linkedin.com/in/iero-navis/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/ieronavis/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>© <span id="year"></span> IERO NAVIS — <span data-i18n="foot.rights"></span></div>
+</footer>
+
+<script>
+  const I18N = {
+ "en": {
+  "nav.company": "Company",
+  "nav.range": "Range",
+  "nav.craft": "Know-how",
+  "nav.events": "Events",
+  "nav.press": "Press",
+  "nav.gallery": "Gallery",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Presentation",
+  "nav.sav": "After-sales",
+  "nav.contact": "Contact",
+  "foot.rights": "All rights reserved",
+  "foot.philosophy": "Philosophy &amp; values",
+  "foot.home": "Home",
+  "title": "Oral presentation — IERO NAVIS",
+  "meta": "Oral presentation of IERO NAVIS: brand, target audience, strengths, strategy and social media results.",
+  "p.eyebrow": "Oral presentation",
+  "p.h1": "IERO NAVIS in three slides",
+  "p.lead": "The brand, our strategy and the results of our communication. Click a sheet to open it in full.",
+  "p.why": "Why:",
+  "p1.h": "The brand, the audience and our strengths",
+  "p1.lead": "The choices that make IERO NAVIS.",
+  "p.name.t": "Our name",
+  "p.name.p": "“IERO”: the Provençal name of Hyères. “NAVIS”: Latin for “ship”.",
+  "p.name.w": "local roots, and a word understood in France and abroad.",
+  "p.logo.t": "Our logo",
+  "p.logo.p": "A swordfish engraved in black ink, its bill pointing to the future.",
+  "p.logo.w": "speed, strength, endurance and the shape of a hull; sober and legible everywhere.",
+  "p.slogan.t": "Our slogan",
+  "p.slogan.p": "“The boats of Hyères and of tomorrow”: a play on “Hyères” and “hier” (yesterday), joining know-how and modernity.",
+  "p.slogan.w": "short, easy to remember, in French for our customers in France.",
+  "p.target.t": "Our target audience",
+  "p.target.p": "Amateur anglers and cruising enthusiasts, aged 30 to 70, on the Mediterranean coast and around lakes. Local authorities and clubs, less often.",
+  "p.target.w": "they are the most likely to have the means to buy a boat.",
+  "p.assets.t": "Our strengths",
+  "p.assets.p": "<ul><li>Complete range</li><li>Aesthetics &amp; comfort</li><li>Innovation</li><li>Protected brand</li><li>100% robotised and reliable production</li><li>Good sales force</li></ul>",
+  "p2.h": "2026 in review and a key event",
+  "p2.lead": "What the year changed in the company.",
+  "pj.h": "2027 projection",
+  "pj.prod.h": "Production policy",
+  "pj.fin.h": "Financial policy",
+  "pj.prod.p": "<ul><li><b>Poséidon</b>: production increased, as our flagship</li><li><b>Calipso</b>: maintained, our best seller</li><li><b>Orion</b>: stock sold, then a new model</li><li><b>Robotised workshops</b>: €2.3 M of productive investment</li></ul>",
+  "pj.fin.p": "<ul><li>Two-year programme of <b>€3.1 M</b>: €2.3 M of investment and €0.8 M of R&amp;D</li><li>Financed by self-financing (about €0.4 M a year) and the grants applied for</li><li>Cash rebuilt from €578,000 at the end of Q4</li></ul>",
+  "rt.h": "2026 in review",
+  "rt.fin.h": "Financial indicator",
+  "rt.hr.h": "HR indicator",
+  "rt.chart.t": "Quarterly turnover (€ million) and boats sold",
+  "rt.chart.alt": "Bar chart: turnover of 0.90 million euros in Q1, 4.12 million in Q2, 3.23 million in Q3 and 2.94 million in Q4 2026",
+  "rt.ca.v": "€11.2 M",
+  "rt.ca.l": "Annual turnover",
+  "rt.ca.s": "+65% on 2025",
+  "rt.res.v": "€1.2 M",
+  "rt.res.l": "Net profit",
+  "rt.tre.v": "€900 → €578,000",
+  "rt.tre.l": "Cash at end of Q4",
+  "rt.ca1": "0.90",
+  "rt.ca2": "4.12",
+  "rt.ca3": "3.23",
+  "rt.ca4": "2.94",
+  "rt.b1": "118 boats",
+  "rt.b2": "565 boats",
+  "rt.b3": "357 boats",
+  "rt.b4": "297 boats",
+  "rt.mult": "Between Q1 and Q2: turnover ×4.6, boats sold ×4.8",
+  "rt.hr.alt": "Two members of the IERO NAVIS team shaking hands",
+  "rt.hr.cap": "An agreement reached with one of our team members",
+  "rt.h1.v": "44",
+  "rt.h1.l": "Employees",
+  "rt.h1.s": "against 24 at the start of the year",
+  "rt.h2.v": "15 → 29",
+  "rt.h2.l": "Administrative staff",
+  "rt.h2.s": "14 hires in one quarter (Q3)",
+  "rt.h3.v": "9 → 12 → 15",
+  "rt.h3.l": "Sales representatives",
+  "rt.h3.s": "3 new hires in Q2 and 3 more in Q4",
+  "rt.h4.v": "55%",
+  "rt.h4.l": "Women in the management team",
+  "rt.h4.s": "parity reached (45% men)",
+  "rt.note": "Pay scales were also raised in Q3: category A from 450 to 500, B from 240 to 320, C from 110 to 150.",
+  "p.event.t": "A key event: Nautic – Paris Boat Show",
+  "p.event.chip": "December 2026 · Paris Expo Porte de Versailles",
+  "p.event.p": "Our first major national boat show: the whole range in front of visitors and retailers.",
+  "p.event.w": "shows come just before the season and generate the spring orders.",
+  "p.event.btn": "All our events",
+  "p3.h": "Communication results on social media",
+  "p3.lead": "What our Instagram and LinkedIn presence has achieved so far.",
+  "p3.views": "Views",
+  "p3.fol": "Followers",
+  "p3.int": "Interactions",
+  "p3.int2": "likes, comments and shares",
+  "p3.note": "That is about 2.9 interactions for every 100 views."
+ },
+ "fr": {
+  "nav.company": "Entreprise",
+  "nav.range": "Gamme",
+  "nav.craft": "Savoir-faire",
+  "nav.events": "Événements",
+  "nav.press": "Presse",
+  "nav.gallery": "Galerie",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Présentation",
+  "nav.sav": "SAV",
+  "nav.contact": "Contact",
+  "foot.rights": "Tous droits réservés",
+  "foot.philosophy": "Philosophie &amp; valeurs",
+  "foot.home": "Accueil",
+  "title": "Présentation orale — IERO NAVIS",
+  "meta": "Présentation orale d’IERO NAVIS : marque, public visé, atouts, stratégie et résultats sur les réseaux sociaux.",
+  "p.eyebrow": "Présentation orale",
+  "p.h1": "IERO NAVIS en trois temps",
+  "p.lead": "La marque, notre stratégie et les résultats de notre communication. Cliquez sur une fiche pour l’ouvrir en grand.",
+  "p.why": "Pourquoi :",
+  "p1.h": "La marque, le public et nos atouts",
+  "p1.lead": "Les choix qui font IERO NAVIS.",
+  "p.name.t": "Notre nom",
+  "p.name.p": "« IERO » : nom provençal d’Hyères. « NAVIS » : « navire » en latin.",
+  "p.name.w": "un ancrage local, et un mot compris en France comme à l’étranger.",
+  "p.logo.t": "Notre logo",
+  "p.logo.p": "Un espadon gravé à l’encre noire, le rostre tourné vers l’avenir.",
+  "p.logo.w": "vitesse, force, endurance et forme de coque ; sobre et lisible partout.",
+  "p.slogan.t": "Notre slogan",
+  "p.slogan.p": "« Les bateaux d’Hyères et de demain » : un jeu de mots entre « Hyères » et « hier », qui allie savoir-faire et modernité.",
+  "p.slogan.w": "court, facile à retenir, en français pour nos clients en France.",
+  "p.target.t": "Notre public visé",
+  "p.target.p": "Pêcheurs amateurs et amateurs de plaisance, de 30 à 70 ans, sur le littoral méditerranéen et autour des lacs. Collectivités et clubs, plus rarement.",
+  "p.target.w": "ce sont ceux qui ont le plus souvent les moyens d’acheter un bateau.",
+  "p.assets.t": "Nos atouts",
+  "p.assets.p": "<ul><li>Gamme complète</li><li>Esthétisme &amp; confort</li><li>Innovation</li><li>Marque protégée</li><li>Production 100 % robotisée et fiable</li><li>Bonne force de vente</li></ul>",
+  "p2.h": "Rétrospective 2026 et un événement marquant",
+  "p2.lead": "Ce que l’année a changé dans l’entreprise.",
+  "pj.h": "Projection 2027",
+  "pj.prod.h": "Politique de production",
+  "pj.fin.h": "Politique financière",
+  "pj.prod.p": "<ul><li><b>Poséidon</b> : production accrue, notre produit phare</li><li><b>Calipso</b> : maintenu, notre bateau le plus vendu</li><li><b>Orion</b> : stock écoulé, puis nouveau modèle</li><li><b>Ateliers robotisés</b> : 2,3 M€ d’investissements productifs</li></ul>",
+  "pj.fin.p": "<ul><li>Programme sur deux ans de <b>3,1 M€</b> : 2,3 M€ d’investissements et 0,8 M€ de R&amp;D</li><li>Financé par l’autofinancement (environ 0,4 M€ par an) et les aides demandées</li><li>Trésorerie à reconstituer à partir de 578 000 € à la fin du T4</li></ul>",
+  "rt.h": "Rétrospective année 2026",
+  "rt.fin.h": "Indicateur financier",
+  "rt.hr.h": "Indicateur RH",
+  "rt.chart.t": "Chiffre d’affaires par trimestre (M€) et bateaux vendus",
+  "rt.chart.alt": "Graphique en barres : chiffre d’affaires de 0,90 million d’euros au T1, de 4,12 millions au T2, de 3,23 millions au T3 et de 2,94 millions au T4 2026",
+  "rt.ca.v": "11,2 M€",
+  "rt.ca.l": "Chiffre d’affaires de l’année",
+  "rt.ca.s": "+65 % par rapport à 2025",
+  "rt.res.v": "1,2 M€",
+  "rt.res.l": "Résultat net",
+  "rt.tre.v": "900 € → 578 000 €",
+  "rt.tre.l": "Trésorerie à la fin du T4",
+  "rt.ca1": "0,90",
+  "rt.ca2": "4,12",
+  "rt.ca3": "3,23",
+  "rt.ca4": "2,94",
+  "rt.b1": "118 bateaux",
+  "rt.b2": "565 bateaux",
+  "rt.b3": "357 bateaux",
+  "rt.b4": "297 bateaux",
+  "rt.mult": "Entre le T1 et le T2 : chiffre d’affaires ×4,6, bateaux vendus ×4,8",
+  "rt.hr.alt": "Deux membres de l’équipe IERO NAVIS se serrant la main",
+  "rt.hr.cap": "Accord conclu avec l’un de nos collaborateurs",
+  "rt.h1.v": "44",
+  "rt.h1.l": "Salariés",
+  "rt.h1.s": "contre 24 en début d’année",
+  "rt.h2.v": "15 → 29",
+  "rt.h2.l": "Service administratif",
+  "rt.h2.s": "14 embauches en un trimestre (T3)",
+  "rt.h3.v": "9 → 12 → 15",
+  "rt.h3.l": "Représentants commerciaux",
+  "rt.h3.s": "3 embauches au T2 et 3 de plus au T4",
+  "rt.h4.v": "55 %",
+  "rt.h4.l": "De femmes dans l’équipe de direction",
+  "rt.h4.s": "parité atteinte (45 % d’hommes)",
+  "rt.note": "Les grilles de rémunération ont aussi été relevées au T3 : catégorie A de 450 à 500, B de 240 à 320, C de 110 à 150.",
+  "p.event.t": "Un événement marquant : Nautic – Salon nautique de Paris",
+  "p.event.chip": "Décembre 2026 · Paris Expo Porte de Versailles",
+  "p.event.p": "Notre première participation à un grand salon national : toute la gamme face aux visiteurs et aux revendeurs.",
+  "p.event.w": "les salons précèdent la saison et génèrent les commandes du printemps.",
+  "p.event.btn": "Tous nos événements",
+  "p3.h": "Résultats de la communication sur les réseaux",
+  "p3.lead": "Ce que notre présence sur Instagram et LinkedIn a déjà donné.",
+  "p3.views": "Vues",
+  "p3.fol": "Abonnés",
+  "p3.int": "Interactions",
+  "p3.int2": "likes, commentaires et partages",
+  "p3.note": "Soit environ 2,9 interactions pour 100 vues."
+ }
+};
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Langue EN / FR ---- */
+  const LANGS = ['en','fr'];
+  function currentLang(){
+    const p = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(p)) return p;
+    try { const s = localStorage.getItem('iero-lang'); if (LANGS.includes(s)) return s; } catch(e){}
+    return 'en';
+  }
+  function applyLang(l){
+    const d = Object.assign({}, I18N[l]);
+    document.documentElement.lang = l;
+    if (d.title) document.title = d.title;
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = d[el.dataset.i18n]; if (v !== undefined) el.innerHTML = v; });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.dataset.i18nAttr.split(';').forEach(pair => { const [attr,key] = pair.split(':'); if (d[key] !== undefined) el.setAttribute(attr, d[key]); });
+    });
+    document.querySelectorAll('[data-link]').forEach(a => {
+      const [page, hash] = a.dataset.link.split('#');
+      a.setAttribute('href', (page || '') + '?lang=' + l + (hash ? '#' + hash : ''));
+      if (!page) a.setAttribute('href', '#' + hash);
+    });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+    document.dispatchEvent(new CustomEvent('langchange', {detail:l}));
+  }
+  function setLang(l){
+    try { localStorage.setItem('iero-lang', l); } catch(e){}
+    try { const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch(e){}
+    applyLang(l);
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  applyLang(currentLang());
+
+  /* ---- Barre de navigation ---- */
+  const nav = document.getElementById('nav');
+  if (nav && !nav.classList.contains('scrolled')) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.6);
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  }
+
+  /* ---- Apparition en fondu ---- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+
+  /* Espaces entre milliers selon la langue */
+  const raw = {'n-views':55476, 'n-fol':412, 'n-int':1590};
+  function fmt(){ const loc = document.documentElement.lang === 'fr' ? 'fr-FR' : 'en-GB'; Object.keys(raw).forEach(id => { document.getElementById(id).textContent = raw[id].toLocaleString(loc); }); }
+  document.addEventListener('langchange', fmt); fmt();
+
+</script>
+</body>
+</html>

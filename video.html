@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Films — IERO NAVIS</title>
+<meta name="description" content="The IERO NAVIS films: our company, our story, our boats.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --ink:#111214; --ink-soft:#4a4d52; --line:#d9dbde; --paper:#ffffff; --mist:#f4f5f6; --sea:#2b3f4d;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1120px,100% - 48px);margin-inline:auto}
+
+  /* Navigation */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,56px);transition:background .4s,box-shadow .4s,padding .4s}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-block:8px}
+  .nav .brand img{height:44px;width:auto;opacity:0;transition:opacity .4s}
+  .nav.scrolled .brand img{opacity:1}
+  .nav ul{display:flex;gap:clamp(12px,2vw,30px);list-style:none}
+  .nav ul a{text-decoration:none;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;position:relative;padding-block:6px;white-space:nowrap}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .nav ul a:hover::after,.nav ul a[aria-current="page"]::after{transform:scaleX(1)}
+  .lang{display:flex;border:1px solid var(--line);background:rgba(255,255,255,.75)}
+  .lang button{background:none;border:0;padding:6px 11px;font:inherit;font-size:.72rem;letter-spacing:.14em;cursor:pointer;color:var(--ink)}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+  /* Génériques */
+  section{position:relative}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.15}
+  h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px}
+  .lead{max-width:640px;margin-top:22px;color:var(--ink-soft);font-size:1.06rem}
+  .pad{padding-block:clamp(72px,11vw,140px)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .btn{display:inline-block;margin-top:30px;padding:15px 34px;border:1px solid var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:background .35s,color .35s}
+  .btn:hover{background:var(--ink);color:#fff}
+  footer{padding:36px 0 44px;text-align:center;font-size:.76rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+  footer img{height:48px;width:auto;margin:0 auto 14px;opacity:.85}
+  footer .links{margin-bottom:14px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+  footer .links a{text-decoration:none;border-bottom:1px solid transparent}
+  footer .links a:hover{border-color:currentColor}
+
+  /* Pages secondaires */
+  .page-head{padding:clamp(130px,16vw,190px) 0 clamp(40px,6vw,70px);text-align:center;background:linear-gradient(var(--mist),var(--paper))}
+  .page-head h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:14px}
+  .page-head .lead{margin-inline:auto}
+
+  .player{max-width:1000px;margin-inline:auto}
+  .stage{position:relative;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+  .stage video{width:100%;aspect-ratio:16/9;background:#000;display:block}
+  .stage.portrait{max-width:min(400px,86vw);margin-inline:auto}
+  .stage.portrait video{aspect-ratio:9/16}
+  .subs{position:absolute;left:0;right:0;bottom:13%;z-index:2;display:flex;justify-content:center;padding:0 5%;pointer-events:none}
+  .subs span{max-width:900px;text-align:center;color:#fff;font-size:clamp(.85rem,2vw,1.35rem);line-height:1.4;padding:.25em .7em;background:rgba(0,0,0,.62);text-shadow:0 1px 2px rgba(0,0,0,.6);opacity:0;transition:opacity .35s}
+  .subs span.on{opacity:1}
+  .subs.mid{bottom:auto;top:50%;transform:translateY(-50%)}
+  .subs.mid span{font-style:italic;white-space:pre-line;background:rgba(0,0,0,.5)}
+  .fs{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border:0;background:rgba(0,0,0,.5);color:#fff;font-size:1.2rem;cursor:pointer;opacity:.75;transition:opacity .3s}
+  .fs:hover{opacity:1}
+  .stage:fullscreen{display:flex;align-items:center;justify-content:center;background:#000;max-width:none}
+  .stage:fullscreen video{height:100vh;width:100%;aspect-ratio:auto;object-fit:contain}
+  .stage:fullscreen .subs{bottom:10%}
+  .stage:fullscreen .subs.mid{bottom:auto;top:50%}
+  .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .page-head.again{padding-top:clamp(40px,6vw,70px)}
+  .page-head h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:14px}
+
+  /* Carrousel des vidéos de présentation */
+  .carousel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(8px,2vw,28px);max-width:760px;margin-inline:auto}
+  .arrow{width:52px;height:52px;border:1px solid var(--ink);border-radius:50%;background:none;font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding-bottom:4px;transition:background .3s,color .3s}
+  .arrow:hover{background:var(--ink);color:#fff}
+  .slide[hidden]{display:none}
+  .slide-title{margin-top:20px;text-align:center;font-family:Georgia,serif;font-size:1.25rem}
+  .dots{display:flex;gap:10px;justify-content:center;margin-top:12px;font-size:.78rem;letter-spacing:.2em;color:var(--ink-soft);align-items:center}
+  .dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid var(--ink);transition:background .3s}
+  .dots i.on{background:var(--ink)}
+  @media (max-width:560px){.arrow{width:40px;height:40px;font-size:1.3rem}}
+
+  /* Courts films */
+  .shorts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,2.4vw,28px);margin-top:40px}
+  .short .stage video{aspect-ratio:16/9}
+  .short h3{margin-top:14px;font-family:Georgia,serif;font-weight:400;font-size:1.3rem;text-align:center}
+
+  @media (max-width:980px){
+    .nav{flex-wrap:wrap;justify-content:center;row-gap:6px}
+    .nav .brand{display:none}
+    .nav ul{flex-wrap:wrap;justify-content:center;gap:4px 14px}
+    .nav ul a{font-size:.68rem;letter-spacing:.1em}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <a class="brand" data-link="index.html#accueil" href="index.html#accueil" aria-label="IERO NAVIS"><img src="logo-iero-navis.png" alt="IERO NAVIS"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a data-link="index.html#entreprise" href="index.html#entreprise" data-i18n="nav.company"></a></li>
+      <li><a data-link="index.html#gamme" href="index.html#gamme" data-i18n="nav.range"></a></li>
+      <li><a data-link="events.html" href="events.html" data-i18n="nav.events"></a></li>
+      <li><a data-link="press.html" href="press.html" data-i18n="nav.press"></a></li>
+      <li><a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a></li>
+      <li><a data-link="video.html" href="video.html" data-i18n="nav.film" aria-current="page"></a></li>
+      <li><a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a></li>
+      <li><a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres"></a></li>
+      <li><a data-link="sav.html" href="sav.html" data-i18n="nav.sav"></a></li>
+      <li><a data-link="index.html#contact" href="index.html#contact" data-i18n="nav.contact"></a></li>
+    </ul>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i18n="v.eyebrow"></span>
+      <h1 data-i18n="v0.h1"></h1>
+      <p class="lead" data-i18n="v0.lead"></p>
+    </div>
+  </section>
+
+  <section class="pad" style="padding-top:20px">
+    <div class="wrap reveal">
+      <div class="carousel" id="carousel">
+        <button class="arrow" type="button" id="prev" aria-label="Previous video" data-i18n-attr="aria-label:v.prev">&#x2039;</button>
+        <div>
+          <figure class="slide" data-slide="0">
+            <div class="stage portrait">
+              <video controls controlsList="nofullscreen" preload="metadata" playsinline poster="logo-iero-navis.png"><source src="1.mp4" type="video/mp4"></video>
+              <div class="subs" aria-live="polite"></div>
+              <div class="subs mid" aria-hidden="true"></div>
+              <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button>
+            </div>
+            <figcaption class="slide-title" data-i18n="v.t1"></figcaption>
+          </figure>
+          <figure class="slide" data-slide="1" hidden>
+            <div class="stage portrait">
+              <video controls controlsList="nofullscreen" preload="none" playsinline poster="logo-iero-navis.png"><source src="2.mp4" type="video/mp4"></video>
+              <div class="subs" aria-live="polite"></div>
+              <div class="subs mid" aria-hidden="true"></div>
+              <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button>
+            </div>
+            <figcaption class="slide-title" data-i18n="v.t2"></figcaption>
+          </figure>
+          <div class="dots" aria-hidden="true"><i class="on"></i><i></i><span id="count">1 / 2</span></div>
+        </div>
+        <button class="arrow" type="button" id="next" aria-label="Next video" data-i18n-attr="aria-label:v.next">&#x203A;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-head again">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i18n="v.eyebrow"></span>
+      <h2 data-i18n="s.h"></h2>
+      <p class="lead" data-i18n="s.lead"></p>
+    </div>
+  </section>
+
+  <section class="pad" style="padding-top:10px">
+    <div class="wrap reveal">
+      <div class="shorts">
+        <figure class="short">
+          <div class="stage"><video controls controlsList="nofullscreen" preload="metadata" playsinline><source src="insta-poseidon.mp4#t=0.1" type="video/mp4"></video>
+            <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button></div>
+          <h3>Poséidon</h3>
+        </figure>
+        <figure class="short">
+          <div class="stage"><video controls controlsList="nofullscreen" preload="metadata" playsinline><source src="insta-calipso.mp4#t=0.1" type="video/mp4"></video>
+            <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button></div>
+          <h3>Calipso</h3>
+        </figure>
+        <figure class="short">
+          <div class="stage"><video controls controlsList="nofullscreen" preload="metadata" playsinline><source src="insta-orion.mp4#t=0.1" type="video/mp4"></video>
+            <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button></div>
+          <h3>Orion</h3>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-head again">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i18n="v.eyebrow"></span>
+      <h2 data-i18n="v.h1"></h2>
+      <p class="lead" data-i18n="v.lead"></p>
+    </div>
+  </section>
+
+  <section class="pad" style="padding-top:20px">
+    <div class="wrap player reveal">
+      <div class="stage" id="stage">
+        <video id="film" controls controlsList="nofullscreen" preload="metadata" playsinline poster="calipso-3.webp">
+          <source src="video-accueil.mp4" type="video/mp4">
+        </video>
+        <button class="fs" type="button" aria-label="Fullscreen" data-i18n-attr="aria-label:v.fs">&#x26F6;</button>
+      </div>
+      <div class="actions" style="margin-top:22px">
+        <button class="btn" type="button" id="playbtn" data-i18n="v.play"></button>
+        <a class="btn" data-link="index.html#gamme" href="index.html#gamme" data-i18n="v.range"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="logo-iero-navis.png" alt="IERO NAVIS">
+  <div class="links">
+    <a data-link="index.html" href="index.html" data-i18n="foot.home"></a>
+    <a data-link="philosophy.html" href="philosophy.html" data-i18n="foot.philosophy"></a>
+    <a data-link="events.html" href="events.html" data-i18n="nav.events"></a>
+    <a data-link="press.html" href="press.html" data-i18n="nav.press"></a>
+    <a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a>
+    <a data-link="video.html" href="video.html" data-i18n="nav.film"></a>
+    <a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a>
+    <a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres"></a>
+    <a data-link="sav.html" href="sav.html" data-i18n="nav.sav"></a>
+    <a href="https://www.linkedin.com/in/iero-navis/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/ieronavis/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>© <span id="year"></span> IERO NAVIS — <span data-i18n="foot.rights"></span></div>
+</footer>
+
+<script>
+  const I18N = {
+ "en": {
+  "nav.company": "Company",
+  "nav.range": "Range",
+  "nav.craft": "Know-how",
+  "nav.events": "Events",
+  "nav.press": "Press",
+  "nav.gallery": "Gallery",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Presentation",
+  "nav.sav": "After-sales",
+  "nav.contact": "Contact",
+  "foot.rights": "All rights reserved",
+  "foot.philosophy": "Philosophy &amp; values",
+  "foot.home": "Home",
+  "title": "Films — IERO NAVIS",
+  "meta": "The IERO NAVIS films: our company, our story, our boats.",
+  "v.eyebrow": "Film",
+  "v0.h1": "Meet IERO NAVIS",
+  "v0.lead": "Our company, our values and the people who build our boats.",
+  "v.t1": "Our company, our values, our people",
+  "v.t2": "The story of IERO NAVIS",
+  "v.prev": "Previous video",
+  "v.next": "Next video",
+  "s.h": "Short films",
+  "s.lead": "Poséidon, Calipso and Orion in a few seconds.",
+  "v.h1": "The IERO NAVIS film",
+  "v.lead": "Discover our world, our boats and the sea that inspires them.",
+  "v.fs": "Fullscreen",
+  "v.play": "Play the film",
+  "v.range": "Discover the range"
+ },
+ "fr": {
+  "nav.company": "Entreprise",
+  "nav.range": "Gamme",
+  "nav.craft": "Savoir-faire",
+  "nav.events": "Événements",
+  "nav.press": "Presse",
+  "nav.gallery": "Galerie",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Présentation",
+  "nav.sav": "SAV",
+  "nav.contact": "Contact",
+  "foot.rights": "Tous droits réservés",
+  "foot.philosophy": "Philosophie &amp; valeurs",
+  "foot.home": "Accueil",
+  "title": "Films — IERO NAVIS",
+  "meta": "Les films IERO NAVIS : notre entreprise, notre histoire, nos bateaux.",
+  "v.eyebrow": "Film",
+  "v0.h1": "Découvrez IERO NAVIS",
+  "v0.lead": "Notre entreprise, nos valeurs et les personnes qui construisent nos bateaux.",
+  "v.t1": "Notre entreprise, nos valeurs, nos équipes",
+  "v.t2": "L’histoire d’IERO NAVIS",
+  "v.prev": "Vidéo précédente",
+  "v.next": "Vidéo suivante",
+  "s.h": "Courts films",
+  "s.lead": "Poséidon, Calipso et Orion en quelques secondes.",
+  "v.h1": "Le film IERO NAVIS",
+  "v.lead": "Découvrez notre univers, nos bateaux et la mer qui les inspire.",
+  "v.fs": "Plein écran",
+  "v.play": "Lancer le film",
+  "v.range": "Découvrir la gamme"
+ }
+};
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Langue EN / FR ---- */
+  const LANGS = ['en','fr'];
+  function currentLang(){
+    const p = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(p)) return p;
+    try { const s = localStorage.getItem('iero-lang'); if (LANGS.includes(s)) return s; } catch(e){}
+    return 'en';
+  }
+  function applyLang(l){
+    const d = Object.assign({}, I18N[l]);
+    document.documentElement.lang = l;
+    if (d.title) document.title = d.title;
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = d[el.dataset.i18n]; if (v !== undefined) el.innerHTML = v; });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.dataset.i18nAttr.split(';').forEach(pair => { const [attr,key] = pair.split(':'); if (d[key] !== undefined) el.setAttribute(attr, d[key]); });
+    });
+    document.querySelectorAll('[data-link]').forEach(a => {
+      const [page, hash] = a.dataset.link.split('#');
+      a.setAttribute('href', (page || '') + '?lang=' + l + (hash ? '#' + hash : ''));
+      if (!page) a.setAttribute('href', '#' + hash);
+    });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+    document.dispatchEvent(new CustomEvent('langchange', {detail:l}));
+  }
+  function setLang(l){
+    try { localStorage.setItem('iero-lang', l); } catch(e){}
+    try { const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch(e){}
+    applyLang(l);
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  applyLang(currentLang());
+
+  /* ---- Barre de navigation ---- */
+  const nav = document.getElementById('nav');
+  if (nav && !nav.classList.contains('scrolled')) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.6);
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  }
+
+  /* ---- Apparition en fondu ---- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+
+  /* Une seule vidéo à la fois */
+  const allVideos = [...document.querySelectorAll('video')];
+  allVideos.forEach(v => v.addEventListener('play', () => allVideos.forEach(o => { if (o !== v) o.pause(); })));
+
+  /* Plein écran */
+  document.querySelectorAll('.stage').forEach(st => {
+    const b = st.querySelector('.fs'); if (!b) return;
+    b.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else if (st.requestFullscreen) st.requestFullscreen(); });
+  });
+
+  /* Sous-titres anglais des deux vidéos de présentation (seulement si le site est en anglais) : [début s, fin s, texte] */
+  const CUES = [ [[28.9, 33.4, "My name is Bastien Coupeaux, and everyone should be able to take to the sea"], [33.4, 37.8, "on a very good, durable boat."], [37.8, 40.8, "The boats of Hyères and of tomorrow: that is our ambition."], [40.8, 46.0, "Today, I invite you aboard to meet our teams,"], [46.0, 52.3, "who work very hard every day for you, our customers."], [52.3, 55.3, "Hello, I’m Pénéloppe Boutillier, legal director."], [55.3, 59.3, "I make sure every boat, every contract, every commitment is solid."], [59.3, 62.3, "For us, reliability starts long before the boat is launched."], [62.3, 71.7, "Hello, I’m Julia Dubuc, labour law manager at IERO NAVIS."], [71.7, 75.7, "My role is to make sure health and safety at work are respected"], [75.7, 79.7, "for all employees, even those who are struggling a little."], [79.7, 84.7, "Every boat is built by a close-knit team, and that is my goal."], [84.7, 91.5, "Hello, I’m Pauline Cervantes, health and safety manager."], [91.5, 95.5, "In our robotised workshops, everyone’s safety comes first."], [96.5, 99.5, "Quality know-how needs teams in top shape."], [99.5, 101.5, "That’s why I cycle in every morning."], [107.1, 108.1, "Hi, girls!"], [108.1, 109.1, "Hi!"], [109.1, 110.1, "Let me introduce you."], [110.1, 115.1, "Hello, I’m Julie Croize, marketing director, and I’ll tell you the story of the company."], [115.1, 119.6, "Born under the Hyères sun, shaped by the Mediterranean,"], [119.6, 124.1, "IERO NAVIS blends French know-how, excellence and aesthetics."], [124.1, 127.1, "Hello, I’m Lisa Jabot, finance director."], [127.1, 130.1, "I manage the accounts so the company stays solid and independent,"], [130.1, 133.1, "which lets us build boats that last."], [133.1, 137.9, "Hello, I’m Nicolas Blancher, head of treasury."], [137.9, 140.9, "I make sure every project has the means to move forward."], [140.9, 145.9, "A well-run company is one you can always count on."], [145.9, 150.8, "Hello, I’m Marie-Anaïs Claverie, head of sales."], [150.8, 155.3, "Our range, Orion, Calipso and Poséidon,"], [155.3, 159.8, "so that fishermen, workers and individuals can find their boat."], [159.8, 162.8, "Accessibility is our priority."], [162.8, 166.9, "Hello, Hugo Gleyze, customer manager."], [166.9, 170.9, "From your first contact to delivery, I’m here to listen and support you."], [170.9, 172.9, "Your trust is our greatest success."], [174.9, 176.9, "Hello, I’m Gaëtan Le Couls, chief accountant."], [176.9, 179.9, "Precise, transparent accounts are how we look after every detail,"], [179.9, 182.9, "just like on our boat hulls."], [182.9, 186.9, "Hello, I’m Thomas Koch-Legrand, sales manager at IERO NAVIS."], [186.9, 189.9, "I’m working on the next order we are about to ship."], [189.9, 192.4, "The goal is simple: find the boat that fits your expectations"], [192.4, 194.9, "so you can sail with complete peace of mind."], [5.8, 7.3, "“The boats of Hyères and of tomorrow”", 1], [7.4, 9.7, "A company with strong values", 1], [9.9, 12.75, "Parity", 1], [12.75, 15.3, "Aesthetics", 1], [15.3, 17.9, "Reliability", 1], [17.9, 20.4, "Innovation", 1], [20.4, 22.9, "Comfort", 1], [22.9, 25.4, "Tradition", 1], [25.4, 28.4, "Low prices", 1], [28.6, 33.3, "CEO\nBastien Coupeaux", 1], [51.8, 56.0, "Legal Director\nPénéloppe Boutillier", 1], [69.5, 73.3, "Labour Law Manager\nJulia Dubuc", 1], [87.3, 93.0, "Health & Safety Manager\nPauline Cervantes", 1], [112.0, 114.0, "Marketing Director\nJulie Croize", 1], [126.8, 128.5, "Finance Director\nLisa Jabot", 1], [136.8, 140.8, "Head of Treasury\nNicolas Blancher", 1], [150.5, 153.0, "Head of Sales\nMarie-Anaïs Claverie", 1], [165.5, 168.0, "Customer Manager\nHugo Gleyze", 1], [175.5, 178.8, "Chief Accountant\nGaëtan Le Couls", 1], [185.0, 187.5, "Sales Manager\nThomas Koch-Legrand", 1]] , [[5.8, 9.3, "Come on, mate, time for me to tell you a story to put you to sleep."], [9.3, 12.3, "Once upon a time, there was a little fisherman."], [13.8, 15.3, "Over there, over there, the big fish!"], [15.3, 16.3, "I’ve got it, I’ve got it!"], [16.3, 17.8, "Go on, go on, reel it in!"], [17.8, 18.8, "Help me, help me!"], [18.8, 19.8, "Help me!"], [22.0, 23.5, "Hi, how are you?"], [23.5, 25.0, "I’m underwater."], [25.0, 26.0, "Can you help me?"], [26.0, 27.5, "It’s raining too hard."], [27.5, 29.0, "Oh no, Bastien!"], [30.0, 31.5, "I’m sinking!"], [31.5, 35.0, "Damn, that stupid fish broke our rod!"], [35.5, 36.5, "Are you okay, Bastien?"], [36.5, 37.9, "No, I’m not okay, mate."], [37.9, 40.5, "I swear, we’ll never deal with poor-quality hulls again."], [41.5, 44.0, "It’s because of this story that I decided to found IERO NAVIS."], [44.0, 46.0, "The boats of Hyères and of tomorrow."], [46.0, 48.5, "Synonymous with reliability and aesthetics."]] ];
+  const slides = [...document.querySelectorAll('.slide')];
+  slides.forEach((sl, i) => {
+    const v = sl.querySelector('video'), cues = CUES[i] || [];
+    const lines = ['.subs:not(.mid)', '.subs.mid'].map(q => { const sp = document.createElement('span'); sl.querySelector(q).appendChild(sp); return {sp, shown: -1}; });
+    const tick = () => {
+      const en = document.documentElement.lang === 'en', t = v.currentTime;
+      lines.forEach((L, m) => {
+        const k = en ? cues.findIndex(c => (c[3] ? 1 : 0) === m && t >= c[0] && t < c[1]) : -1;
+        if (k !== L.shown) { L.shown = k; if (k < 0) L.sp.classList.remove('on'); else { L.sp.textContent = cues[k][2]; L.sp.classList.add('on'); } }
+      });
+    };
+    ['timeupdate','seeked','play','pause','loadedmetadata'].forEach(ev => v.addEventListener(ev, tick));
+    document.addEventListener('langchange', tick);
+    (function loop(){ if (!v.paused) tick(); requestAnimationFrame(loop); })();
+  });
+
+  /* Carrousel (flèches) */
+  let cur = 0;
+  function show(i){
+    cur = (i + slides.length) % slides.length;
+    slides.forEach((sl, k) => { sl.hidden = k !== cur; if (k !== cur) sl.querySelector('video').pause(); });
+    document.querySelectorAll('.dots i').forEach((d, k) => d.classList.toggle('on', k === cur));
+    document.getElementById('count').textContent = (cur + 1) + ' / ' + slides.length;
+    const v = slides[cur].querySelector('video'); if (v.preload === 'none') v.preload = 'metadata';
+  }
+  document.getElementById('prev').addEventListener('click', () => show(cur - 1));
+  document.getElementById('next').addEventListener('click', () => show(cur + 1));
+
+  const film = document.getElementById('film');
+  document.getElementById('playbtn').addEventListener('click', () => {
+    film.scrollIntoView({behavior:'smooth', block:'center'});
+    film.play().catch(() => {});
+  });
+
+</script>
+</body>
+</html>

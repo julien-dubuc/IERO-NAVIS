@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>After-sales & customer reviews — IERO NAVIS</title>
+<meta name="description" content="IERO NAVIS after-sales service: satisfaction survey results, customer reviews, and a way to leave your own review.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --ink:#111214; --ink-soft:#4a4d52; --line:#d9dbde; --paper:#ffffff; --mist:#f4f5f6; --sea:#2b3f4d;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:min(1120px,100% - 48px);margin-inline:auto}
+
+  /* Navigation */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,4vw,56px);transition:background .4s,box-shadow .4s,padding .4s}
+  .nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-block:8px}
+  .nav .brand img{height:44px;width:auto;opacity:0;transition:opacity .4s}
+  .nav.scrolled .brand img{opacity:1}
+  .nav ul{display:flex;gap:clamp(12px,2vw,30px);list-style:none}
+  .nav ul a{text-decoration:none;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;position:relative;padding-block:6px;white-space:nowrap}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .nav ul a:hover::after,.nav ul a[aria-current="page"]::after{transform:scaleX(1)}
+  .lang{display:flex;border:1px solid var(--line);background:rgba(255,255,255,.75)}
+  .lang button{background:none;border:0;padding:6px 11px;font:inherit;font-size:.72rem;letter-spacing:.14em;cursor:pointer;color:var(--ink)}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+  /* Génériques */
+  section{position:relative}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.15}
+  h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px}
+  .lead{max-width:640px;margin-top:22px;color:var(--ink-soft);font-size:1.06rem}
+  .pad{padding-block:clamp(72px,11vw,140px)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .btn{display:inline-block;margin-top:30px;padding:15px 34px;border:1px solid var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:background .35s,color .35s}
+  .btn:hover{background:var(--ink);color:#fff}
+  footer{padding:36px 0 44px;text-align:center;font-size:.76rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+  footer img{height:48px;width:auto;margin:0 auto 14px;opacity:.85}
+  footer .links{margin-bottom:14px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+  footer .links a{text-decoration:none;border-bottom:1px solid transparent}
+  footer .links a:hover{border-color:currentColor}
+
+  /* Pages secondaires */
+  .page-head{padding:clamp(130px,16vw,190px) 0 clamp(40px,6vw,70px);text-align:center;background:linear-gradient(var(--mist),var(--paper))}
+  .page-head h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:14px}
+  .page-head .lead{margin-inline:auto}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat{background:var(--paper);padding:28px 20px;text-align:center}
+  .stat b{display:block;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.1}
+  .stat span{display:block;margin-top:8px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);margin-top:clamp(40px,6vw,70px)}
+  .two h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:1.35rem;margin-bottom:18px}
+  table.t{width:100%;border-collapse:collapse;font-size:.92rem}
+  table.t th,table.t td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left}
+  table.t th{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:400}
+  table.t td.n{white-space:nowrap}
+  .bars{list-style:none}
+  .bars li{margin-bottom:14px;font-size:.9rem}
+  .bars .row{display:flex;justify-content:space-between;gap:12px}
+  .bars .track{height:3px;background:var(--line);margin-top:6px}
+  .bars .fill{height:100%;background:var(--sea)}
+  .commit{margin-top:clamp(40px,6vw,70px);background:var(--mist);padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+  .commit b{display:block;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:1.7rem}
+  .commit span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .sec-h{max-width:640px;margin-bottom:34px}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+  .filters button{font:inherit;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;background:none;border:1px solid var(--line);cursor:pointer;color:var(--ink)}
+  .filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .rev{border:1px solid var(--line);padding:24px 24px 20px;background:var(--paper)}
+  .rev[hidden]{display:none}
+  .rev .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .rev p{margin:12px 0 14px;font-size:.96rem}
+  .rev .who{font-size:.8rem;color:var(--ink-soft)}
+  .rev .marks{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:.78rem;color:var(--ink-soft)}
+  .rev .marks i{font-style:normal;letter-spacing:.12em;color:var(--sea)}
+  .rev.mine{border-color:var(--sea)}
+  .rev .badge{display:inline-block;margin-left:8px;padding:1px 8px;border:1px solid var(--sea);color:var(--sea);letter-spacing:.12em}
+  .empty{color:var(--ink-soft);margin-top:10px}
+  form.rf{max-width:760px;margin-inline:auto;display:grid;gap:18px}
+  form.rf label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  form.rf input,form.rf select,form.rf textarea{width:100%;font:inherit;font-size:.98rem;padding:12px 14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:0}
+  form.rf textarea{min-height:140px;resize:vertical}
+  form.rf input:focus,form.rf select:focus,form.rf textarea:focus{outline:2px solid var(--sea);outline-offset:1px}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fbtns{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .fbtns .btn{margin-top:0;background:none;font:inherit;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+  .fbtns .btn:hover{background:var(--ink);color:#fff}
+  .note{font-size:.84rem;color:var(--ink-soft)}
+  .msg{font-size:.9rem;color:var(--sea);min-height:1.4em}
+  @media (max-width:820px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .two,.reviews,.g2,.commit{grid-template-columns:1fr}
+  }
+
+  @media (max-width:980px){
+    .nav{flex-wrap:wrap;justify-content:center;row-gap:6px}
+    .nav .brand{display:none}
+    .nav ul{flex-wrap:wrap;justify-content:center;gap:4px 14px}
+    .nav ul a{font-size:.68rem;letter-spacing:.1em}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <a class="brand" data-link="index.html#accueil" href="index.html#accueil" aria-label="IERO NAVIS"><img src="logo-iero-navis.png" alt="IERO NAVIS"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a data-link="index.html#entreprise" href="index.html#entreprise" data-i18n="nav.company"></a></li>
+      <li><a data-link="index.html#gamme" href="index.html#gamme" data-i18n="nav.range"></a></li>
+      <li><a data-link="events.html" href="events.html" data-i18n="nav.events"></a></li>
+      <li><a data-link="press.html" href="press.html" data-i18n="nav.press"></a></li>
+      <li><a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a></li>
+      <li><a data-link="video.html" href="video.html" data-i18n="nav.film"></a></li>
+      <li><a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a></li>
+      <li><a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres"></a></li>
+      <li><a data-link="sav.html" href="sav.html" data-i18n="nav.sav" aria-current="page"></a></li>
+      <li><a data-link="index.html#contact" href="index.html#contact" data-i18n="nav.contact"></a></li>
+    </ul>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap reveal">
+      <span class="eyebrow" data-i18n="s.eyebrow"></span>
+      <h1 data-i18n="s.h1"></h1>
+      <p class="lead" data-i18n="s.lead"></p>
+    </div>
+  </section>
+
+  <section class="pad" style="padding-top:20px">
+    <div class="wrap reveal">
+      <div class="stats">
+        <div class="stat"><b>4,70 / 5</b><span data-i18n="st.product"></span></div>
+        <div class="stat"><b>4,86 / 5</b><span data-i18n="st.sav"></span></div>
+        <div class="stat"><b>100 %</b><span data-i18n="st.happy"></span></div>
+        <div class="stat"><b>120</b><span data-i18n="st.count"></span></div>
+      </div>
+
+      <div class="two">
+        <div>
+          <h3 data-i18n="t.models"></h3>
+          <table class="t">
+            <thead><tr><th data-i18n="t.model"></th><th data-i18n="t.n"></th><th data-i18n="t.p"></th><th data-i18n="t.s"></th></tr></thead>
+            <tbody>
+              <tr><td>Orion</td><td class="n">30</td><td class="n">4,63</td><td class="n">4,93</td></tr>
+              <tr><td>Calipso</td><td class="n">66</td><td class="n">4,76</td><td class="n">4,88</td></tr>
+              <tr><td>Poséidon</td><td class="n">24</td><td class="n">4,62</td><td class="n">4,71</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3 data-i18n="t.criteria"></h3>
+          <ul class="bars">
+<li><div class="row"><span data-i18n="c.build"></span><span>4,92</span></div><div class="track"><div class="fill" style="width:98.4%"></div></div></li>
+<li><div class="row"><span data-i18n="c.pay"></span><span>4,90</span></div><div class="track"><div class="fill" style="width:98.0%"></div></div></li>
+<li><div class="row"><span data-i18n="c.fin"></span><span>4,78</span></div><div class="track"><div class="fill" style="width:95.6%"></div></div></li>
+<li><div class="row"><span data-i18n="c.price"></span><span>4,78</span></div><div class="track"><div class="fill" style="width:95.6%"></div></div></li>
+<li><div class="row"><span data-i18n="c.delay"></span><span>4,77</span></div><div class="track"><div class="fill" style="width:95.4%"></div></div></li>
+<li><div class="row"><span data-i18n="c.sav"></span><span>4,86</span></div><div class="track"><div class="fill" style="width:97.2%"></div></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div><b data-i18n="cm.1b"></b><span data-i18n="cm.1"></span></div>
+        <div><b data-i18n="cm.2b"></b><span data-i18n="cm.2"></span></div>
+        <div><b data-i18n="cm.3b"></b><span data-i18n="cm.3"></span></div>
+      </div>
+
+      <div class="two">
+        <div>
+          <h3 data-i18n="t.kpi"></h3>
+          <table class="t">
+            <tbody>
+              <tr><td data-i18n="k.1"></td><td class="n">42 / 120 (35 %)</td></tr>
+              <tr><td data-i18n="k.2"></td><td class="n">4,1 h</td></tr>
+              <tr><td data-i18n="k.3"></td><td class="n" data-i18n="k.3v"></td></tr>
+              <tr><td data-i18n="k.4"></td><td class="n">90 %</td></tr>
+              <tr><td data-i18n="k.5"></td><td class="n">100 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3 data-i18n="t.requests"></h3>
+          <ul class="bars">
+<li><div class="row"><span data-i18n="r.fix"></span><span>24 %</span></div><div class="track"><div class="fill" style="width:24%"></div></div></li>
+<li><div class="row"><span data-i18n="r.finish"></span><span>24 %</span></div><div class="track"><div class="fill" style="width:24%"></div></div></li>
+<li><div class="row"><span data-i18n="r.part"></span><span>19 %</span></div><div class="track"><div class="fill" style="width:19%"></div></div></li>
+<li><div class="row"><span data-i18n="r.tech"></span><span>14 %</span></div><div class="track"><div class="fill" style="width:14%"></div></div></li>
+<li><div class="row"><span data-i18n="r.warranty"></span><span>19 %</span></div><div class="track"><div class="fill" style="width:19%"></div></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" style="background:var(--mist)" id="avis">
+    <div class="wrap">
+      <div class="sec-h reveal">
+        <span class="eyebrow" data-i18n="rv.eyebrow"></span>
+        <h2 data-i18n="rv.h2"></h2>
+        <p class="lead" data-i18n="rv.lead"></p>
+      </div>
+      <div class="filters" role="group" id="rfilters">
+        <button type="button" data-filter="all" aria-pressed="true" data-i18n="g.all"></button>
+        <button type="button" data-filter="orion" aria-pressed="false">Orion</button>
+        <button type="button" data-filter="calipso" aria-pressed="false">Calipso</button>
+        <button type="button" data-filter="poseidon" aria-pressed="false">Poséidon</button>
+      </div>
+      <div class="reviews" id="reviews"></div>
+    </div>
+  </section>
+
+  <section class="pad" id="donner-avis">
+    <div class="wrap">
+      <div class="sec-h reveal" style="margin-inline:auto;text-align:center">
+        <span class="eyebrow" data-i18n="f.eyebrow"></span>
+        <h2 data-i18n="f.h2"></h2>
+        <p class="lead" style="margin-inline:auto" data-i18n="f.lead"></p>
+      </div>
+      <form class="rf reveal" id="rform" novalidate>
+        <div class="g2">
+          <div><label for="f-who" data-i18n="f.who"></label><input id="f-who" maxlength="80" autocomplete="off" data-i18n-attr="placeholder:f.whoph"></div>
+          <div><label for="f-model" data-i18n="f.model"></label>
+            <select id="f-model"><option value="orion">Orion</option><option value="calipso">Calipso</option><option value="poseidon">Poséidon</option></select></div>
+        </div>
+        <div class="g2">
+          <div><label for="f-p" data-i18n="f.p"></label>
+            <select id="f-p"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+          <div><label for="f-s" data-i18n="f.s"></label>
+            <select id="f-s"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+        </div>
+        <div><label for="f-text" data-i18n="f.text"></label><textarea id="f-text" maxlength="900" data-i18n-attr="placeholder:f.textph"></textarea></div>
+        <div class="fbtns">
+          <button class="btn" type="button" id="b-pub" data-i18n="f.pub"></button>
+          <button class="btn" type="button" id="b-mail" data-i18n="f.mail"></button>
+        </div>
+        <p class="msg" id="fmsg" role="status"></p>
+        <p class="note" data-i18n="f.note"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="logo-iero-navis.png" alt="IERO NAVIS">
+  <div class="links">
+    <a data-link="index.html" href="index.html" data-i18n="foot.home"></a>
+    <a data-link="philosophy.html" href="philosophy.html" data-i18n="foot.philosophy"></a>
+    <a data-link="events.html" href="events.html" data-i18n="nav.events"></a>
+    <a data-link="press.html" href="press.html" data-i18n="nav.press"></a>
+    <a data-link="gallery.html" href="gallery.html" data-i18n="nav.gallery"></a>
+    <a data-link="video.html" href="video.html" data-i18n="nav.film"></a>
+    <a data-link="marketing.html" href="marketing.html" data-i18n="nav.mkt"></a>
+    <a data-link="presentation.html" href="presentation.html" data-i18n="nav.pres"></a>
+    <a data-link="sav.html" href="sav.html" data-i18n="nav.sav"></a>
+    <a href="https://www.linkedin.com/in/iero-navis/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/ieronavis/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>© <span id="year"></span> IERO NAVIS — <span data-i18n="foot.rights"></span></div>
+</footer>
+
+<script>
+  const I18N = {
+ "en": {
+  "nav.company": "Company",
+  "nav.range": "Range",
+  "nav.craft": "Know-how",
+  "nav.events": "Events",
+  "nav.press": "Press",
+  "nav.gallery": "Gallery",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Presentation",
+  "nav.sav": "After-sales",
+  "nav.contact": "Contact",
+  "foot.rights": "All rights reserved",
+  "foot.philosophy": "Philosophy &amp; values",
+  "foot.home": "Home",
+  "title": "After-sales & customer reviews — IERO NAVIS",
+  "meta": "IERO NAVIS after-sales service: satisfaction survey results, customer reviews, and a way to leave your own review.",
+  "s.eyebrow": "After-sales",
+  "s.h1": "Customer reviews &amp; after-sales service",
+  "s.lead": "What our customers say about Orion, Calipso and Poséidon, and how our after-sales team looks after them. Results of our quarter-2 satisfaction survey.",
+  "st.product": "Average product score",
+  "st.sav": "Average after-sales score",
+  "st.happy": "Satisfied customers",
+  "st.count": "Survey responses",
+  "t.models": "Results by model",
+  "t.model": "Model",
+  "t.n": "Responses",
+  "t.p": "Product",
+  "t.s": "After-sales",
+  "t.criteria": "Results by criterion (out of 5)",
+  "c.build": "Build quality",
+  "c.pay": "Payment terms",
+  "c.fin": "Finish",
+  "c.price": "Value for money",
+  "c.delay": "Delivery lead times",
+  "c.sav": "After-sales service",
+  "cm.1b": "24 h",
+  "cm.1": "First response",
+  "cm.2b": "5 working days",
+  "cm.2": "Resolution",
+  "cm.3b": "1 contact",
+  "cm.3": "A single point of contact for each case",
+  "t.kpi": "After-sales in figures",
+  "k.1": "Customers who contacted after-sales",
+  "k.2": "Average time to first response",
+  "k.3": "Average time to resolution",
+  "k.3v": "2.5 days",
+  "k.4": "Cases resolved at first contact",
+  "k.5": "Cases closed",
+  "t.requests": "What customers ask about",
+  "r.fix": "Fittings / hardware",
+  "r.finish": "Finish / touch-ups",
+  "r.part": "Replacement parts",
+  "r.tech": "Technical questions",
+  "r.warranty": "Warranty",
+  "rv.eyebrow": "Reviews",
+  "rv.h2": "What our customers say",
+  "rv.lead": "A selection of reviews from retailers, rental companies and local authorities. Customers are identified by their activity and département.",
+  "f.eyebrow": "Your opinion",
+  "f.h2": "Leave a review",
+  "f.lead": "You own an IERO NAVIS boat? Tell us what you think. You can post your review on this page or send it directly to our team.",
+  "f.who": "Your activity &amp; département (optional)",
+  "f.whoph": "e.g. Boat retailer – Var",
+  "f.model": "Model",
+  "f.p": "Product score (1–5)",
+  "f.s": "After-sales score (1–5)",
+  "f.text": "Your review",
+  "f.textph": "Tell us about your experience…",
+  "f.pub": "Post on this page",
+  "f.mail": "Send by e-mail",
+  "f.note": "Reviews posted here are saved in your browser only. To make your review reach the IERO NAVIS team, use “Send by e-mail”: your mail app will open with the message ready to send to ieronavis@gmail.com.",
+  "f.err": "Please write your review first.",
+  "f.ok": "Thank you! Your review is now displayed above.",
+  "f.mailok": "Your mail app should open. If not, write to ieronavis@gmail.com.",
+  "f.mine": "Your review",
+  "f.del": "Remove",
+  "f.none": "No review for this model yet.",
+  "mail.subject": "Customer review — IERO NAVIS",
+  "mail.model": "Model",
+  "mail.p": "Product score",
+  "mail.s": "After-sales score",
+  "mail.who": "Customer",
+  "mail.anon": "(anonymous)",
+  "lbl.p": "Product",
+  "lbl.s": "After-sales"
+ },
+ "fr": {
+  "nav.company": "Entreprise",
+  "nav.range": "Gamme",
+  "nav.craft": "Savoir-faire",
+  "nav.events": "Événements",
+  "nav.press": "Presse",
+  "nav.gallery": "Galerie",
+  "nav.film": "Film",
+  "nav.mkt": "Marketing",
+  "nav.pres": "Présentation",
+  "nav.sav": "SAV",
+  "nav.contact": "Contact",
+  "foot.rights": "Tous droits réservés",
+  "foot.philosophy": "Philosophie &amp; valeurs",
+  "foot.home": "Accueil",
+  "title": "SAV & avis clients — IERO NAVIS",
+  "meta": "Le service après-vente IERO NAVIS : résultats de l’enquête de satisfaction, avis clients et possibilité de déposer votre propre avis.",
+  "s.eyebrow": "Service après-vente",
+  "s.h1": "Avis clients &amp; service après-vente",
+  "s.lead": "Ce que nos clients disent d’Orion, de Calipso et de Poséidon, et la façon dont notre équipe SAV les accompagne. Résultats de notre enquête de satisfaction du trimestre 2.",
+  "st.product": "Note moyenne du produit",
+  "st.sav": "Note moyenne du SAV",
+  "st.happy": "Clients satisfaits",
+  "st.count": "Retours d’enquête",
+  "t.models": "Résultats par modèle",
+  "t.model": "Modèle",
+  "t.n": "Retours",
+  "t.p": "Produit",
+  "t.s": "SAV",
+  "t.criteria": "Résultats par critère (sur 5)",
+  "c.build": "Qualité de fabrication",
+  "c.pay": "Conditions de paiement",
+  "c.fin": "Finitions",
+  "c.price": "Rapport qualité-prix",
+  "c.delay": "Délais de livraison",
+  "c.sav": "Service après-vente",
+  "cm.1b": "24 h",
+  "cm.1": "Première réponse",
+  "cm.2b": "5 jours ouvrés",
+  "cm.2": "Résolution",
+  "cm.3b": "1 interlocuteur",
+  "cm.3": "Un interlocuteur unique pour chaque dossier",
+  "t.kpi": "Le SAV en chiffres",
+  "k.1": "Clients ayant sollicité le SAV",
+  "k.2": "Délai moyen de première réponse",
+  "k.3": "Délai moyen de résolution",
+  "k.3v": "2,5 jours",
+  "k.4": "Dossiers résolus dès le premier contact",
+  "k.5": "Dossiers clôturés",
+  "t.requests": "Nature des demandes",
+  "r.fix": "Fixation / accastillage",
+  "r.finish": "Finition / retouche",
+  "r.part": "Pièce de remplacement",
+  "r.tech": "Demande technique",
+  "r.warranty": "Garantie",
+  "rv.eyebrow": "Avis",
+  "rv.h2": "Ce que disent nos clients",
+  "rv.lead": "Une sélection d’avis de revendeurs, loueurs et collectivités. Chaque client est identifié par son activité et son département.",
+  "f.eyebrow": "Votre avis",
+  "f.h2": "Donner votre avis",
+  "f.lead": "Vous avez un bateau IERO NAVIS ? Dites-nous ce que vous en pensez. Vous pouvez publier votre avis sur cette page ou l’envoyer directement à notre équipe.",
+  "f.who": "Votre activité &amp; département (facultatif)",
+  "f.whoph": "ex. Revendeur nautique – Var",
+  "f.model": "Modèle",
+  "f.p": "Note du produit (1–5)",
+  "f.s": "Note du SAV (1–5)",
+  "f.text": "Votre avis",
+  "f.textph": "Racontez-nous votre expérience…",
+  "f.pub": "Publier sur cette page",
+  "f.mail": "Envoyer par e-mail",
+  "f.note": "Les avis publiés ici sont enregistrés dans votre navigateur uniquement. Pour que votre avis parvienne à l’équipe IERO NAVIS, utilisez « Envoyer par e-mail » : votre messagerie s’ouvrira avec le message prêt à envoyer à ieronavis@gmail.com.",
+  "f.err": "Merci d’écrire votre avis d’abord.",
+  "f.ok": "Merci ! Votre avis est maintenant affiché ci-dessus.",
+  "f.mailok": "Votre messagerie devrait s’ouvrir. Sinon, écrivez à ieronavis@gmail.com.",
+  "f.mine": "Votre avis",
+  "f.del": "Supprimer",
+  "f.none": "Aucun avis pour ce modèle pour le moment.",
+  "mail.subject": "Avis client — IERO NAVIS",
+  "mail.model": "Modèle",
+  "mail.p": "Note du produit",
+  "mail.s": "Note du SAV",
+  "mail.who": "Client",
+  "mail.anon": "(anonyme)",
+  "lbl.p": "Produit",
+  "lbl.s": "SAV"
+ }
+};
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Langue EN / FR ---- */
+  const LANGS = ['en','fr'];
+  function currentLang(){
+    const p = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(p)) return p;
+    try { const s = localStorage.getItem('iero-lang'); if (LANGS.includes(s)) return s; } catch(e){}
+    return 'en';
+  }
+  function applyLang(l){
+    const d = Object.assign({}, I18N[l]);
+    document.documentElement.lang = l;
+    if (d.title) document.title = d.title;
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = d[el.dataset.i18n]; if (v !== undefined) el.innerHTML = v; });
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.dataset.i18nAttr.split(';').forEach(pair => { const [attr,key] = pair.split(':'); if (d[key] !== undefined) el.setAttribute(attr, d[key]); });
+    });
+    document.querySelectorAll('[data-link]').forEach(a => {
+      const [page, hash] = a.dataset.link.split('#');
+      a.setAttribute('href', (page || '') + '?lang=' + l + (hash ? '#' + hash : ''));
+      if (!page) a.setAttribute('href', '#' + hash);
+    });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
+    document.dispatchEvent(new CustomEvent('langchange', {detail:l}));
+  }
+  function setLang(l){
+    try { localStorage.setItem('iero-lang', l); } catch(e){}
+    try { const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch(e){}
+    applyLang(l);
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  applyLang(currentLang());
+
+  /* ---- Barre de navigation ---- */
+  const nav = document.getElementById('nav');
+  if (nav && !nav.classList.contains('scrolled')) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > window.innerHeight * 0.6);
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  }
+
+  /* ---- Apparition en fondu ---- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+
+  const MODELS = {orion:'Orion', calipso:'Calipso', poseidon:'Poséidon'};
+  /* Avis de l'enquête (trimestre 2) : [modèle, client FR, client EN, produit, SAV, texte FR, texte EN] */
+  const SEED = [
+    ['orion','Revendeur multimarque – Gard','Multi-brand retailer – Gard',5,5,
+      'Coque bien équilibrée, stable à faible vitesse : nos clients en sont satisfaits. Commande suivie et livrée dans les temps. Interlocuteur unique au SAV, très réactif.',
+      'Well-balanced hull, stable at low speed: our customers are happy with it. Order tracked and delivered on time. A single contact at after-sales, very responsive.'],
+    ['orion','Revendeur nautique – Gard','Boat retailer – Gard',5,5,
+      'Robuste et simple : c’est exactement ce que demandent nos clients pêcheurs. Un problème de fixation d’accastillage a été réglé en 48 heures.',
+      'Sturdy and simple: exactly what our fishing customers ask for. A hardware-fitting problem was fixed within 48 hours.'],
+    ['orion','Concession lacs et rivières – Bouches-du-Rhône','Lakes & rivers dealership – Bouches-du-Rhône',4,5,
+      'Accompagnement après-vente de qualité, au-delà de nos attentes. Seul bémol : un délai un peu long en avril, en pleine saison. Une marque qui inspire confiance à nos clients.',
+      'After-sales support of high quality, beyond our expectations. Only downside: a slightly long lead time in April, at the height of the season. A brand our customers trust.'],
+    ['orion','Revendeur nautique – Charente-Maritime','Boat retailer – Charente-Maritime',5,4,
+      'Les banquettes bois sont bien finies ; nos clients le remarquent tout de suite. Le SAV est efficace, mais les rappels pourraient être plus rapides.',
+      'The wooden seats are beautifully finished; our customers notice straight away. After-sales is efficient, but call-backs could be faster.'],
+    ['calipso','Revendeur nautique – Savoie','Boat retailer – Savoie',5,4,
+      'C’est notre meilleure vente : la cabine est bien pensée et le solarium arrière très apprécié. Aucun retard sur nos commandes du trimestre. Le SAV est efficace, mais les rappels pourraient être plus rapides.',
+      'It is our best seller: the cabin is well designed and the rear sun deck is much appreciated. No delays on our orders this quarter. After-sales is efficient, but call-backs could be faster.'],
+    ['calipso','Revendeur nautique – Charente-Maritime','Boat retailer – Charente-Maritime',5,5,
+      'Excellente stabilité, nos clients de lac et d’estuaire en sont ravis. Un dossier de garantie a été accepté et traité sans formalité inutile. Nous recommandons IERO NAVIS sans réserve.',
+      'Excellent stability: our lake and estuary customers love it. A warranty claim was accepted and handled without needless formalities. We recommend IERO NAVIS without reservation.'],
+    ['calipso','Concession lacs et rivières – Morbihan','Lakes & rivers dealership – Morbihan',5,5,
+      'Finitions irréprochables, aucune reprise nécessaire à la réception. La pièce commandée est arrivée en trois jours, avec un suivi précis. Nous sommes très satisfaits de cette collaboration.',
+      'Flawless finish, no rework needed on delivery. The part we ordered arrived in three days, with precise tracking. We are very pleased with this collaboration.'],
+    ['calipso','Revendeur multimarque – Manche','Multi-brand retailer – Manche',4,4,
+      'Le bateau se vend presque seul : les clients apprécient la qualité visible du bois et du plastique. Le SAV est efficace, mais les rappels pourraient être plus rapides. Seul bémol : un délai un peu long en avril.',
+      'The boat almost sells itself: customers appreciate the visible quality of the wood and plastic. After-sales is efficient, but call-backs could be faster. Only downside: a slightly long lead time in April.'],
+    ['poseidon','Revendeur nautique – Corse-du-Sud','Boat retailer – Corse-du-Sud',5,5,
+      'Il supporte sans difficulté deux moteurs puissants ; nos clients exigeants l’ont validé. Le SAV a répondu en moins d’une journée. Une marque qui inspire confiance à nos clients.',
+      'It handles two powerful engines with no difficulty; our demanding customers have approved it. After-sales replied in under a day. A brand our customers trust.'],
+    ['poseidon','Revendeur multimarque – Gard','Multi-brand retailer – Gard',5,5,
+      'Une vraie réussite : deux cabines et un poste de pilotage fonctionnel. Très bon rapport qualité-prix. Les délais de livraison ont été tenus, ce qui nous permet de planifier nos ventes.',
+      'A real success: two cabins and a practical helm station. Very good value for money. Delivery lead times were met, which lets us plan our sales.'],
+    ['poseidon','Collectivité – Loire-Atlantique','Local authority – Loire-Atlantique',4,5,
+      'Très bonne tenue en mer, nos clients de pêche au gros sont conquis. Une demande sur un point de fixation a été traitée dès le lendemain, avec la bonne pièce. Prix légèrement au-dessus de certains concurrents, mais cohérent avec la qualité.',
+      'Very good seakeeping, our big-game fishing customers are won over. A request about a fixing point was handled the very next day, with the right part. Price slightly above some competitors, but consistent with the quality.'],
+    ['poseidon','Collectivité – Isère','Local authority – Isère',5,4,
+      'Esthétique et robustesse : il réunit les deux, et cela se voit en exposition. Livraison ponctuelle, bateau bien protégé pour le transport. La première réponse du SAV est parfois arrivée en fin de journée.',
+      'Looks and toughness: it combines both, and it shows on display. Punctual delivery, boat well protected for transport. The first after-sales reply sometimes came late in the day.']
+  ];
+  const KEY = 'iero-avis';
+  const lang = () => document.documentElement.lang === 'fr' ? 'fr' : 'en';
+  const t = k => (I18N[lang()] || {})[k] || '';
+  let cache = null;   /* copie en mémoire : l'avis reste affiché même si le navigateur bloque le stockage */
+  function loadMine(){
+    if (cache) return cache;
+    try { const a = JSON.parse(localStorage.getItem(KEY) || '[]'); cache = Array.isArray(a) ? a : []; } catch(e){ cache = []; }
+    return cache;
+  }
+  function saveMine(a){ cache = a; try { localStorage.setItem(KEY, JSON.stringify(a)); } catch(e){} }
+  const stars = n => '★'.repeat(n) + '☆'.repeat(5 - n);
+
+  let filter = 'all';
+  const box = document.getElementById('reviews');
+  function card(model, who, p, s, text, mine, idx){
+    const d = document.createElement('article'); d.className = 'rev' + (mine ? ' mine' : ''); d.dataset.model = model;
+    const top = document.createElement('div'); top.className = 'top';
+    const m = document.createElement('span'); m.textContent = MODELS[model];
+    if (mine){ const b = document.createElement('span'); b.className = 'badge'; b.textContent = t('f.mine'); m.appendChild(b); }
+    top.appendChild(m); d.appendChild(top);
+    const q = document.createElement('p'); q.textContent = '« ' + text + ' »'; d.appendChild(q);
+    if (who){ const w = document.createElement('div'); w.className = 'who'; w.textContent = who; d.appendChild(w); }
+    const mk = document.createElement('div'); mk.className = 'marks';
+    const a = document.createElement('span'); a.textContent = t('lbl.p') + ' '; const ai = document.createElement('i'); ai.textContent = stars(p); a.appendChild(ai);
+    const c = document.createElement('span'); c.textContent = t('lbl.s') + ' '; const ci = document.createElement('i'); ci.textContent = stars(s); c.appendChild(ci);
+    mk.append(a, c);
+    if (mine){
+      const x = document.createElement('button'); x.type = 'button'; x.textContent = t('f.del');
+      x.style.cssText = 'background:none;border:0;font:inherit;font-size:.78rem;text-decoration:underline;cursor:pointer;color:var(--ink-soft)';
+      x.addEventListener('click', () => { const arr = loadMine(); arr.splice(idx, 1); saveMine(arr); render(); });
+      mk.appendChild(x);
+    }
+    d.appendChild(mk);
+    return d;
+  }
+  function render(){
+    box.textContent = '';
+    const L = lang();
+    const mine = loadMine();
+    mine.forEach((r, i) => { if (filter === 'all' || r.model === filter) box.appendChild(card(r.model, r.who, r.p, r.s, r.text, true, i)); });
+    SEED.forEach(r => { if (filter === 'all' || r[0] === filter) box.appendChild(card(r[0], L === 'fr' ? r[1] : r[2], r[3], r[4], L === 'fr' ? r[5] : r[6], false)); });
+    if (!box.children.length){ const e = document.createElement('p'); e.className = 'empty'; e.textContent = t('f.none'); box.appendChild(e); }
+  }
+  document.querySelectorAll('#rfilters button').forEach(b => b.addEventListener('click', () => {
+    filter = b.dataset.filter;
+    document.querySelectorAll('#rfilters button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  }));
+  document.addEventListener('langchange', render);
+  render();
+
+  const $ = id => document.getElementById(id);
+  const read = () => ({ who: $('f-who').value.trim(), model: $('f-model').value, p: +$('f-p').value, s: +$('f-s').value, text: $('f-text').value.trim() });
+  $('b-pub').addEventListener('click', () => {
+    const r = read();
+    if (!r.text){ $('fmsg').textContent = t('f.err'); $('f-text').focus(); return; }
+    const arr = loadMine(); arr.unshift(r); saveMine(arr);
+    $('f-text').value = ''; $('fmsg').textContent = t('f.ok');
+    filter = 'all'; document.querySelectorAll('#rfilters button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.filter === 'all')));
+    render(); $('avis').scrollIntoView({behavior:'smooth'});
+  });
+  $('b-mail').addEventListener('click', () => {
+    const r = read();
+    if (!r.text){ $('fmsg').textContent = t('f.err'); $('f-text').focus(); return; }
+    const body = [t('mail.who') + ' : ' + (r.who || t('mail.anon')), t('mail.model') + ' : ' + MODELS[r.model],
+      t('mail.p') + ' : ' + r.p + '/5', t('mail.s') + ' : ' + r.s + '/5', '', r.text].join('\n');
+    location.href = 'mailto:ieronavis@gmail.com?subject=' + encodeURIComponent(t('mail.subject')) + '&body=' + encodeURIComponent(body);
+    $('fmsg').textContent = t('f.mailok');
+  });
+
+</script>
+</body>
+</html>
